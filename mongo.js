@@ -19,7 +19,7 @@ const personSchema = new mongoose.Schema({
 const Person = mongoose.model('Person', personSchema)
 
 switch(process.argv.length) {
-case 5:
+case 5: {
   const person = new Person ({
     name: process.argv[3],
     number: process.argv[4],
@@ -30,8 +30,8 @@ case 5:
     mongoose.connection.close()
   })
   break
-
-case 3:
+}
+case 3:{
   console.log('Phonebook:')
   Person.find({}).then(result => {
     result.forEach(person => {
@@ -40,4 +40,5 @@ case 3:
     mongoose.connection.close()
   })
   break
+}
 }
